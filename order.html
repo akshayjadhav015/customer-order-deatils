@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Order Form</title>
+  <style>
+    @media screen {
+      max-width: 600px;
+      
+    }
+
+    *{
+      padding: 0%;
+      margin: 0%;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+
+    }
+
+    .title {
+      justify-content: center;
+      text-align: center;
+      font-size: 30px;
+      font-weight: bold;
+      font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    label {
+      margin-top: 5px;
+      display: block;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+      width: 300px;
+      padding: 3px;
+      margin: 5px 0 15px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button[type="submit"] {
+      background-color: #28a745;
+      color: white;
+      padding: 10px;
+      margin-left: 50px;
+      width: 200px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #50f623;
+    }
+
+    #form {
+      justify-content: center;
+      margin: auto;
+      width: 350px;
+      height: 500px;
+      border: 2px solid black;
+      border-radius: 10px;
+      padding-left: 65px;
+      padding-top: 20px;
+    }
+  </style>
+</head>
+</head>
+
+<body>
+
+  <form name="akshay">
+    <section class="main">
+      <h1 class="title">Delivery Details</h1>
+      </div>
+      </div>
+    </section>
+    <form id="form" class="main1" method="POST" aria-required="rounded-end">
+      <div class="field" id="form">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="Full Name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="Email" required>
+
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" name="Phone Number" required>
+
+        <label for="food">Select Food Item:</label>
+        <select id="food" name="Food" required>
+          <option value="">--Please choose an option--</option>
+          <option value="pizza">Pizza</option>
+          <option value="burger">Burger</option>
+          <option value="sushi">Sushi</option>
+          <option value="pasta">Pasta</option>
+          <option value="salad">Salad</option>
+        </select>
+
+        <label for="quantity">Quantity:</label>
+        <input type="text" id="quantity" name="Quantity" required>
+
+        <label for="address">Delivery Address:</label>
+        <textarea id="address" name="Address" rows="4" required></textarea>
+        <button class="btn" onclick="myFunction()" type="submit" id="submit-button">
+          Order
+        </button>
+      </div>
+      </div>
+    </form>
+    <div id="message" style="
+        display: none;
+        margin: 20px;
+        font-weight: bold;
+        color: green;
+        padding: 8px;
+        background-color: beige;
+        border-radius: 4px;
+        border-color: aquamarine;
+      "></div>
+    <script> 
+
+      
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbwfVMzpMUv3DzUUISQsKwFaEqkv88OfjxZoZ5hpINZa11ODqLq1i-XhyNW2jDG1_u3JCw/exec'
+      const form = document.forms['akshay']
+
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+          .then(response => console.log('Success!', response))
+          .catch(error => console.error('Error!', error.message))
+      })</script>
+</body>
+
+</html>
